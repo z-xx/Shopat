@@ -1,0 +1,25 @@
+extends layoutBS
+
+block content
+  .jumbotron
+  h1 Add Snacks
+  
+  form(method='post')
+    .form-group
+        label(for='snacks') Snack name
+        input(type="text" name='snname' placeholder='Enter Snack Name Here')#dname.form-control
+    .form-group
+        label(for='snacks') Type
+        select(name='snorigin')#dname.form-control
+            option imported
+            option non-imported
+        
+    .form-group
+        label(for='snacks') Your descriptions
+        textarea(type='text' name='sndes' rows='3' placeholder='Be Subjective')#dname.form-control
+
+    .form-group
+        label(for='snacks') Photo of snack
+        input(type='file')#dname.form-control-file
+
+    input(type='submit' value="Submit your choice").btn.btn-primary 

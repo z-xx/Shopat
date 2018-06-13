@@ -1,0 +1,21 @@
+extends layoutBS
+
+block content
+  .jumbotron
+    h1.display-4= title
+    p.lead.
+      Welcome to #{title}
+
+  
+  body
+    .btn-group.btn-fill(role='group' aria-label='Button group with nested dropdown')
+      button.btn.btn-secondary(type='button') 
+        a.dropdown-item(href='/drinks') Drinks
+      button.btn.btn-secondary(type='button') 
+        a.dropdown-item(href='/snacks') Snacks
+      .btn-group(role='group')
+        button#btnGroupDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Add new item
+        .dropdown-menu(aria-labelledby='btnGroupDrop1')
+          a.dropdown-item(href='/adddrinks') Add to drinks
+          a.dropdown-item(href='/addsnacks') Add to snacks

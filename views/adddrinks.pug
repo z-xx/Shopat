@@ -1,0 +1,27 @@
+extends layoutBS
+
+block content
+  .jumbotron
+  h1 Add Drinks
+
+  form(method='post')
+    .form-group
+        label(for='drinks') Drink name
+        input(type="text" name='dname' placeholder='Enter Drink Name Here')#dname.form-control
+    .form-group
+        label(for='drinks') Type
+        select(name='dorigin')#dname.form-control
+            option imported
+            option non-imported
+        
+    .form-group
+        label(for='drinks') Your descriptions
+        textarea(type='text' name='ddes' rows='3' placeholder='Be Subjective')#dname.form-control
+
+    .form-group
+        label(for='drinks') Photo of drinks
+        input(type='file')#dname.form-control-file
+
+    input(type='submit' value="Submit your choice").btn.btn-primary 
+
+  
