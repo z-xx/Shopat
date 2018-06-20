@@ -2,38 +2,38 @@ extends layoutBS
 
 block content
   .jumbotron
-  h1 Drinks
+  h1  Snacks
 
 
   .flex-container 
-    each d in drinks
+    each s in snacks
       div    
             img(width="100%" src='https://clubedomalte.fbitsstatic.net/img/p/duff-355ml-63523/230376.jpg?w=460&h=460&v=no-change' alt='Card image cap')
-            h5 #{d.dname}
+            h5 #{s.sname}
             ul.list-group.list-group-flush
-              li.list-group-item #{d.dorigin} Origin
-              li.list-group-item $#{d.dprice}
+              li.list-group-item #{s.sorigin} Origin
+              li.list-group-item $#{s.sprice}
               a.btn.btn-primary(href='#') Details  
 
 
   
   
-  //- each d in drinks
+  //- each s in snacks
   //-   .row
   //-     .col-sm-6
   //-       .card.bg-light.mb-3(style='max-width: 18rem;')
   //-         img.card-img-top(src='https://clubedomalte.fbitsstatic.net/img/p/duff-355ml-63523/230376.jpg?w=460&h=460&v=no-change' alt='Card image cap')
-  //-         h5.card-header #{d.dname}
+  //-         h5.card-header #{s.dname}
   //-         ul.list-group.list-group-flush
-  //-           li.list-group-item #{d.dorigin} Origin
-  //-           li.list-group-item $#{d.dprice}
+  //-           li.list-group-item #{s.dorigin} Origin
+  //-           li.list-group-item $#{s.dprice}
   //-           a.card-link.btn.btn-primary(href='#') Details
   //-     .col-sm-6
   //-       .card.bg-light.mb-3(style='max-width: 18rem;')
   //-         img.card-img-top(src='https://clubedomalte.fbitsstatic.net/img/p/duff-355ml-63523/230376.jpg?w=460&h=460&v=no-change' alt='Card image cap')
-  //-         h5.card-header #{d.dname}
+  //-         h5.card-header #{s.dname}
   //-         ul.list-group.list-group-flush
-  //-           li.list-group-item #{d.dorigin} Origin
-  //-           li.list-group-item $#{d.dprice} 
+  //-           li.list-group-item #{s.dorigin} Origin
+  //-           li.list-group-item $#{s.dprice} 
   //-           a.card-link.btn.btn-primary(href='#') Details 
     

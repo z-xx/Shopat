@@ -11,16 +11,19 @@ block content
     .form-group
         label(for='drinks') Type
         select(name='dorigin')#dname.form-control
-            option imported
-            option non-imported
-        
+            option Imported
+            option Non-imported
+    .form-group
+        label(for='drinks') Drink price
+        input(type="text" name='dprice' placeholder='$ Drink price')#dname.form-control   
+         
     .form-group
         label(for='drinks') Your descriptions
         textarea(type='text' name='ddes' rows='3' placeholder='Be Subjective')#dname.form-control
 
     .form-group
         label(for='drinks') Photo of drinks
-        input(type='file')#dname.form-control-file
+        input(type='file' name='dphoto')#dname.form-control-file
 
     input(type='submit' value="Submit your choice").btn.btn-primary 
 

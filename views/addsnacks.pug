@@ -3,23 +3,26 @@ extends layoutBS
 block content
   .jumbotron
   h1 Add Snacks
-  
+
   form(method='post')
     .form-group
         label(for='snacks') Snack name
-        input(type="text" name='snname' placeholder='Enter Snack Name Here')#dname.form-control
+        input(type="text" name='sname' placeholder='Enter Snack Name Here')#sname.form-control
     .form-group
         label(for='snacks') Type
-        select(name='snorigin')#dname.form-control
+        select(name='sorigin')#sname.form-control
             option imported
             option non-imported
-        
+    .form-group
+        label(for='snacks') Snack price
+        input(type="text" name='sprice' placeholder='$ Snack price')#sname.form-control   
+         
     .form-group
         label(for='snacks') Your descriptions
-        textarea(type='text' name='sndes' rows='3' placeholder='Be Subjective')#dname.form-control
+        textarea(type='text' name='sdes' rows='3' placeholder='Be Subjective')#sname.form-control
 
     .form-group
-        label(for='snacks') Photo of snack
-        input(type='file')#dname.form-control-file
+        label(for='snacks') Photo of snacks
+        input(type='file' name='sphoto')#sname.form-control-file
 
     input(type='submit' value="Submit your choice").btn.btn-primary 

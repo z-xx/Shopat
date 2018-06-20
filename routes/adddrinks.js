@@ -10,6 +10,7 @@ router.post('/', function(req, res, next) {
   console.log(req.body.dname);
   console.log(req.body.dorigin);
   console.log(req.body.ddes);
+  console.log(req.body.dprice);
   res.render('adddrinks', { title: 'Shopat' });
 });
 module.exports = router;
