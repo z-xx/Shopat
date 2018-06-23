@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -49,4 +49,15 @@ li.list-group-item{
   text-align: center;
   line-height: 75px;
   font-size: 30px;
+}
+
+h.ll {
+  padding: 13px;
+  font-size: 50px;
+  font-style: italic;
+}
+
+a#1{
+  padding: 3px;
+  font-size: 90px;
 }

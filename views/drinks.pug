@@ -13,6 +13,8 @@ block content
             ul.list-group.list-group-flush
               li.list-group-item #{d.dorigin} Origin
               li.list-group-item $#{d.dprice}
+              if status=='admin'
+                a.btn.btn-primary(href='#') Delete
               a.btn.btn-primary(href='#') Details  
 
 
