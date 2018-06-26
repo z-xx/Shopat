@@ -2,9 +2,9 @@ module.exports = {
 
 
     'googleAuth' : {
-        'clientID': '246096591118-ti33uv184e4m1bib9grgn8alm45btadb.apps.googleusercontent.com',
-        'clientSecret'  : 'iqgLqu6pXgLuHsZFq6nvxDX3',
-        'callbackURL'   : 'http://127.0.0.1:5000/login/authorized'
+        'clientID': '157494346275-f7jgbi6eev27bhpnnlt9pv3j1oskt5s1.apps.googleusercontent.com',
+        'clientSecret'  : 'ibZZUgqxw-db2wUTeXB-y5uu',
+        'callbackURL'   : 'http://leiner.cs-i.brandeis.edu:5900/login/authorized'
     }
 
 };
