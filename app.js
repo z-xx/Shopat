@@ -15,7 +15,7 @@ var addsnacksRouter = require('./routes/addsnacks');
 var drinksController = require('./controllers/drinksController');
 var snacksController = require('./controllers/snacksController');
 var app = express();
-var bodyParser = require("body-parser")
+const bodyParser = require("body-parser")
 // var flash = require('connect-flash')
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -44,6 +44,18 @@ app.use(session({ secret: 'zzbbyanana' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+const
+mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/shopat' );
+const 
+db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!")
+});
+
+
 // here is where we check on their logged in status
 app.use((req,res,next) => {
   res.locals.loggedIn = false
@@ -67,7 +79,7 @@ app.use((req,res,next) => {
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/login/authorized',
         passport.authenticate('google', {
-                successRedirect : '/',
+                successRedirect : '/shopping',
                 failureRedirect : '/loginerror'
         }));
 
@@ -117,18 +129,6 @@ app.get('/addsnacks', isLoggedIn, function(req,res){
 app.post('/addsnacks', isLoggedIn, snacksController.saveSnacks)
 app.use('/addsnacks', isLoggedIn, addsnacksRouter);
 app.get('/snacks', isLoggedIn, snacksController.getAllSnacks );
-
-
-const
-mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/shopat' );
-const 
-db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we are connected!")
-});
-
 
 
 // catch 404 and forward to error handler
