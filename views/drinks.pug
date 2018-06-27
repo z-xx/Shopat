@@ -14,7 +14,14 @@ block content
               li.list-group-item #{d.dorigin} Origin
               li.list-group-item $#{d.dprice}
               if status=='admin'
-                a.btn.btn-primary(href='#') Delete
+                //- a.btn.btn-primary(href='#') Delete
+                    h1 List of All Drinks
+                //- form(method="post" action="deleteDrinks")
+                //-   each d in drinks
+                //-         input(name="deleteName" value=drinks.name)
+                //-         e #{drinks.name} --
+                //-         i #{drinks.description}      
+                input(type='submit' value="Delete").btn.btn-primary
               a.btn.btn-primary(href='#') Details  
 
 

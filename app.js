@@ -30,10 +30,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/shopping', shoppingRouter);
-app.use('/loginSS', loginSSRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -43,18 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'zzbbyanana' }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-const
-mongoose = require( 'mongoose' );
-mongoose.connect( 'mongodb://localhost/shopat' );
-const 
-db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we are connected!")
-});
-
 
 // here is where we check on their logged in status
 app.use((req,res,next) => {
@@ -75,6 +59,21 @@ app.use((req,res,next) => {
   }
   next()
 })
+const
+mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/shopat' );
+const 
+db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!")
+});
+
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/shopping', shoppingRouter);
+app.use('/loginSS', loginSSRouter);
 
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/login/authorized',
@@ -89,6 +88,7 @@ function isLoggedIn(req, res, next) {
   // if user is authenticated in the session, carry on
   res.locals.loggedIn = false
   if (req.isAuthenticated()){
+    res.locals.loggedIn = true
     console.log("user has been Authenticated")
     return next();
   } else {
@@ -118,7 +118,7 @@ app.get('/adddrinks', isLoggedIn, function(req,res){
   res.render('adddrinks',{})
 });
 app.post('/adddrinks', isLoggedIn, drinksController.saveDrinks)
-app.use('/addsnacks', isLoggedIn, addsnacksRouter);
+app.use('/adddrinks', isLoggedIn, adddrinksRouter);
 app.get('/drinks', isLoggedIn, drinksController.getAllDrinks );
 
 //app.use('/snacks', snacksRouter);

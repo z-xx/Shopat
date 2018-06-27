@@ -41,3 +41,26 @@ exports.saveDrinks = ( req, res ) => {
       res.send( error );
     } );
 };
+
+// exports.deleteDrinks = (req, res) => {
+//   console.log("in deleteDrinks")
+//   let drinksName = req.body.deleteName
+//   if (typeof(drinksName)=='string') {
+//       Skill.deleteOne({name:drinksName})
+//            .exec()
+//            .then(()=>{res.redirect('/drinks')})
+//            .catch((error)=>{res.send(error)})
+//   } else if (typeof(drinksName)=='object'){
+//       Skill.deleteMany({name:{$in:drinksName}})
+//            .exec()
+//            .then(()=>{res.redirect('/drinks')})
+//            .catch((error)=>{res.send(error)})
+//   } else if (typeof(drinksName)=='undefined'){
+//       console.log("This is if they didn't select")
+//       res.redirect('/drinks')
+//   } else {
+//     console.log("This shouldn't happen!")
+//     res.send(`unknown drinkName: ${drinksName}`)
+//   }
+
+// };
