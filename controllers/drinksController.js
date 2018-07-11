@@ -64,3 +64,38 @@ exports.saveDrinks = ( req, res ) => {
 //   }
 
 // };
+exports.getDdes = ( req, res ) => {
+  const objId = new mongo.ObjectId(req.params.id)
+  Drinks.findOne({"_id": objID}) 
+    .exec()
+    .then( ( drinks ) => {
+      res.render( 'drinks', {
+        drinks: drinks
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      console.log( 'getDdes complete' );
+    } );
+};
+
+exports.attachDdes = ( req, res, next ) => {
+  console.log('in attachDdes')
+  const objId = new mongo.ObjectId(req.params.id)
+  Drinks.findOne(objId) //{"_id": objId})
+    .exec()
+    .then( ( drinks ) => {
+      res.locals.drinks = drinks
+      next()
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      console.log( 'attachDdes complete' );
+    } );
+};
